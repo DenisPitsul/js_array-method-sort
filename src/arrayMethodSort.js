@@ -5,13 +5,9 @@
  */
 function applyCustomSort() {
   [].__proto__.sort2 = function (compareFunction) {
-    let actualCompareFunction;
-
-    if (!compareFunction) {
-      actualCompareFunction = defaultCompareFunction;
-    } else {
-      actualCompareFunction = compareFunction;
-    }
+    const actualCompareFunction = !compareFunction
+      ? defaultCompareFunction
+      : compareFunction;
 
     for (let i = 0; i < this.length - 1; i++) {
       let minIndex = i;
